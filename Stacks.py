@@ -1,31 +1,33 @@
-class Stacks:
+class Stack:
     def __init__(self):
-        self.items = []
+        self.items = [] # This makes a dynamic stack. How would you make a static stack?
 
-    def push(self,item):
+    def push(self, item):
         self.items.append(item)
 
     def pop(self):
         if self.isEmpty():
             print("Stack is empty")
-        else:
-            self.popped = self.items.pop()
-            return self.popped
+            return None
+        return self.items.pop() # Python command removes last item from a list and returnes it.
 
     def isEmpty(self):
-        if len(self.items) == 0:
-            return True
-        else:
-            return False
+        return len(self.items) == 0
 
     def peek(self):
-        return self.items[-1]
+        if self.isEmpty():
+            print("Stack is empty")
+            return None
+        return self.items[-1] #Python allows you to look at the last item in the list using [-1]
 
-stackTest = Stacks()
-stackTest.push('archie')
-stackTest.push('owen')
+    def printStack(self):
+        print(self.items)
+
+stackTest = Stack()
+stackTest.push('gaspard')
+stackTest.push('thomas')
 stackTest.push('Mr.Fryer')
-print(stackTest)
+stackTest.printStack()
 popped = stackTest.pop()
 print(popped)
 popped = stackTest.pop()
